@@ -5,6 +5,7 @@ import za.ac.tut.u221091140.laboratorywebapp.entities.user.security.Security;
 import za.ac.tut.u221091140.laboratorywebapp.entities.user.studentadmin.StudentAdmin;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -24,8 +25,9 @@ class LabRequest {
     @OneToOne
     @JoinColumn(name = "staff_no")
     private StudentAdmin studentAdmin;
-    private Boolean isOpened;
     private Boolean isSignedIn;
+    private Date openTime;
+    private Date closeTime;
 
     public StudentAdmin getStudentAdmin() {
         return studentAdmin;
