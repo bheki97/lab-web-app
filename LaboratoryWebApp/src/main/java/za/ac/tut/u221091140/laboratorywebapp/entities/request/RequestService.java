@@ -14,9 +14,64 @@ public class RequestService {
     @Autowired
     private RequestRepository requestRepository;
 
+    public void closeLab(Long labReqId){
+        LabRequest labReq = requestRepository.findById(labReqId).get();
+
+        if(!labReq.getSignedIn() && labReq.getLab().getIsOpen()){
+            labReq.setLab(labReq.getLab().setIsOpen(false));
+        }
+    }
+
+    public void openLab(Long labReqId){
+        LabRequest labReq = requestRepository.findById(labReqId).get();
+
+        if(!labReq.getLab().getIsOpen()){
+            labReq.setLab(labReq.getLab().setIsOpen(true));
+        }
+    }
+
+
+    public void signIn(Long labReqId){
+        LabRequest labReq = requestRepository.findById(labReqId).get();
+
+        if(labReq.getLab().getIsOpen()){
+            labReq.setSignedIn(true);
+            requestRepository.save(labReq);
+        }
+
+    }
+    public void signOut(Long labReqId){
+        LabRequest labReq = requestRepository.findById(labReqId).get();
+
+        if(labReq.getSignedIn() && labReq.getLab().getIsOpen()){
+            labReq.setSignedIn(true);
+            requestRepository.save(labReq);
+        }
+
+    }
 
     public void addRequest(LabRequest labRequest){
-        requestRepository.save(labRequest);
+        List<LabRequest> labRequests = getLabRequests();
+        LabRequest listLabReq;
+        while(true){
+
+            if(!labRequests.isEmpty()){
+                listLabReq = labRequests.remove(0);
+                if(listLabReq.getLab().getLabNo()==labRequest.getLab().getLabNo()){
+
+                    if(labRequest.getOpenTime().after(listLabReq.getCloseTime())
+                        || labRequest.getCloseTime().before(listLabReq.getOpenTime())){
+
+                        break;
+                    }
+                }
+            }else{
+                requestRepository.save(labRequest);
+                break;
+            }
+
+        }
+
     }
 
     public List<LabRequest> getLabRequests(){
