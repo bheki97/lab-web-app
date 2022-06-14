@@ -116,7 +116,7 @@
             </button>
             <div class="justify-content-end collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link active myLink" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active myLink" aria-current="page" href="/home">Home</a>
                     <a class="nav-link active myLink" href="#">Schedule</a>
                     <a class="nav-link active myLink" href="#">Contacts</a>
                     <a class="nav-link active myLink login rounded-pill" href="login.html" tabindex="-1" aria-disabled="true">Login</a>

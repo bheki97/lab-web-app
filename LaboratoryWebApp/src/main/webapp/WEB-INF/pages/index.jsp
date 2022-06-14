@@ -8,86 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <style>
-        body {
-            background-color: #4B73A7 !important;
-            height: 100vh;
-            min-width: 300px;
-            display: flex;
-            flex-flow: column;
-        }
-
-        .custom-nav {
-            flex-grow: 1;
-        }
-
-        .myNav {
-            background-color: #003883 !important;
-        }
-
-        .myBrand {
-            color: #ffffff !important;
-            font-family: 'Secular One';
-            font-size: 2em;
-        }
-
-        .table-container {
-            flex-grow: 10;
-        }
-
-        .myLink {
-            color: #E4B312 !important;
-            font-weight: bold;
-            margin-left: 30px;
-            margin-right: 30px;
-            text-align: center;
-        }
-
-        h2 {
-            font-weight: bolder !important;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 40px;
-        }
-
-        .schedule {
-            border-collapse: collapse;
-            min-width: 300px;
-            margin-bottom: 60px !important;
-            width: 80%;
-            background-color: #F1ECEC;
-        }
-
-        tbody>tr>td {
-            padding: 10px;
-            font-weight: bold;
-            text-align: center;
-        }
-
-        thead {
-            background-color: #CE1127 !important;
-        }
-
-        thead th:first-child {
-            border-radius: 10px 0 0 10px;
-        }
-
-        thead th:last-child {
-            border-radius: 0 10px 10px 0;
-        }
-
-        .login {
-            background-color: #CE1127;
-            padding: 5px;
-        }
-
-        footer {
-            background-color: #F1ECEC;
-            flex-grow: 1;
-            width: 100%;
-        }
-    </style>
-</head>
+    <link rel="stylesheet" href="../css/home.css">
+    </head>
 
 <body>
 
@@ -101,8 +23,8 @@
             </button>
             <div class="justify-content-end collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link active myLink" aria-current="page" href="#">Home</a>
-                    <a class="nav-link active myLink" href="#">Schedule</a>
+                    <a class="nav-link active myLink" aria-current="page" href="/home">Home</a>
+                    <a class="nav-link active myLink" href="#">Show Users</a>
                     <a class="nav-link active myLink" href="#">Contacts</a>
                     <a class="nav-link active myLink login rounded-pill" href="home/signup" tabindex="-1" aria-disabled="true">Sign Up</a>
                 </div>
@@ -159,6 +81,9 @@
     <!-- Copyright -->
 </div>
 
+
+<!--Javascript-->
+<script src="../js/bootstrap.bundle.min.js" ></script>
 <%
 
     String msg = (String) session.getAttribute("msg");
@@ -171,7 +96,6 @@
 
     }
 %>
-
 </body>
 
 </html>

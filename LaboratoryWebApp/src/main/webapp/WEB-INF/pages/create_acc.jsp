@@ -116,7 +116,7 @@
             </button>
             <div class="justify-content-end collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link active myLink" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active myLink" aria-current="page" href="/home">Home</a>
                     <a class="nav-link active myLink" href="#">Schedule</a>
                     <a class="nav-link active myLink" href="#">Contacts</a>
                     <a class="nav-link active myLink login rounded-pill" href="login.html" tabindex="-1" aria-disabled="true">Login</a>
@@ -132,7 +132,7 @@
                 <div class="col-12 col-md-9 col-lg-7 col-xl-6">
                     <div class="" style="border-radius: 15px;">
                         <div class="custom-card p-5">
-                            <h2 class="text-uppercase text-center mb-4">Create an account</h2>
+                            <h2 class="text-uppercase text-center mb-4">Add User account</h2>
 
                             <form action="/home/createaccount" method="post">
                                 <div class="names form-outline mb-2 ">
@@ -151,7 +151,13 @@
                                         <label class="form-label" for="form3Example1cg">Your Staff/Student No.</label>
                                     </div>
                                 </div>
-
+                                <div class="form-outline mb-2">
+                                    <select name="role" id="">
+                                        <option value="security">Security</option>
+                                        <option value="student">Student</option>
+                                        <option value="admin">Lecture/Tutor</option>
+                                    </select>
+                                </div>
                                 <div class="form-outline mb-2">
                                     <input type="email" id="form3Example3cg" name="email" class="form-control form-control-lg" />
                                     <label class="form-label" for="form3Example3cg">Your Email</label>
