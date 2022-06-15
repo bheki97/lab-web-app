@@ -2,12 +2,11 @@ package za.ac.tut.u221091140.laboratorywebapp.entities.user.studentadmin;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import za.ac.tut.u221091140.laboratorywebapp.entities.schedule.SecScheduleService;
+import za.ac.tut.u221091140.laboratorywebapp.entities.lab.Lab;
 import za.ac.tut.u221091140.laboratorywebapp.entities.schedule.SecuritySchedule;
 import za.ac.tut.u221091140.laboratorywebapp.entities.user.User;
 import za.ac.tut.u221091140.laboratorywebapp.entities.user.UserService;
 import za.ac.tut.u221091140.laboratorywebapp.entities.user.security.Security;
-import za.ac.tut.u221091140.laboratorywebapp.entities.user.studentadmin.StudentAdmin;
 
 import javax.servlet.http.HttpServletRequest;
 import java.sql.Timestamp;
@@ -20,8 +19,8 @@ public class AdminService {
 
     @Autowired
     private UserService userService;
-    @Autowired
-    private SecScheduleService secSchServ;
+
+
     public User CreateUser(HttpServletRequest request){
        String surname  = request.getParameter("surname");
         String name  = request.getParameter("name");
@@ -63,7 +62,7 @@ public class AdminService {
         return user;
     }
 
-    public void addSchedule(HttpServletRequest request){
+    public SecuritySchedule createSchedule(HttpServletRequest request){
         String dateStr = request.getParameter("date");
         String secIds[] = request.getParameterValues("secid");
 
@@ -72,9 +71,8 @@ public class AdminService {
         SecuritySchedule secSch = new SecuritySchedule();
         secSch.setDate(Timestamp.valueOf(dateStr));
         secSch.setSecurity(securities);
-        secSchServ.addSchedule(secSch);
 
-
+        return secSch;
     }
 
     private List<Security> getSecurities(String[] secIds) {
@@ -92,5 +90,20 @@ public class AdminService {
 
         return securities;
     }
+
+    public Lab createLab(HttpServletRequest request) {
+        String labNo = request.getParameter("labno");
+        String campus = request.getParameter("campus");
+        Integer buildingNo = Integer.parseInt(request.getParameter("buildingno"));
+
+        Lab lab = new Lab();
+        lab.setLabNo(labNo);
+        lab.setIsOpen(false);
+        lab.setBuildingNo(buildingNo);
+        lab.setCampus(campus);
+
+        return lab;
+    }
+
 
 }
