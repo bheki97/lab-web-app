@@ -1,6 +1,7 @@
-package za.ac.tut.u221091140.laboratorywebapp.services;
+package za.ac.tut.u221091140.laboratorywebapp.entities.user.studentadmin;
 
 import org.springframework.stereotype.Service;
+import za.ac.tut.u221091140.laboratorywebapp.entities.lab.Lab;
 import za.ac.tut.u221091140.laboratorywebapp.entities.user.User;
 import za.ac.tut.u221091140.laboratorywebapp.entities.user.security.Security;
 import za.ac.tut.u221091140.laboratorywebapp.entities.user.studentadmin.StudentAdmin;
@@ -50,6 +51,25 @@ public class AdminService {
         }
 
         return user;
+    }
+
+    public Lab addLab(HttpServletRequest request){
+        Lab lab = new Lab();
+        String labno,campus;
+        Integer buildingNo;
+        Boolean isOpen = false;
+
+        labno = request.getParameter("labno");
+        campus = request.getParameter("campus");
+        buildingNo = Integer.parseInt(request.getParameter("buildngno"));
+
+
+        lab.setLabNo(labno);
+        lab.setIsOpen(isOpen);
+        lab.setCampus(campus);
+        lab.setBuildingNo(buildingNo);
+
+        return lab;
     }
 
 }
