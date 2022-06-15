@@ -33,7 +33,7 @@ public class AdminController {
     }
 
     @PostMapping("/adduser")
-    public void createAcc(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void createcAc(HttpServletRequest request, HttpServletResponse response) throws IOException {
         HttpSession session = request.getSession();
 
         User user = adminService.CreateUser(request);
@@ -56,6 +56,26 @@ public class AdminController {
 
         response.sendRedirect("/home");
 
+    }
+
+    @GetMapping("/login")
+    public ModelAndView login(HttpServletRequest request){
+        ModelAndView modelAndView = new ModelAndView();
+        Long userId = Long.parseLong(request.getParameter("userId"));
+        String location;
+
+        // find user
+        User user = userService.findUser(userId);
+
+        //check role and direct to a Specific page
+        if(user.getRole()=="studentAdmin"){
+            location = "";
+        }
+
+
+
+        modelAndView.setViewName("");
+        return modelAndView;
     }
 
 

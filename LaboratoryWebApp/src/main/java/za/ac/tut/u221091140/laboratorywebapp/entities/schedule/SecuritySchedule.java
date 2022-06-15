@@ -16,4 +16,31 @@ import java.util.List;
     @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.PERSIST)
     private List<Security> security;
 
+    public SecuritySchedule() {
+
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public List<Security> getSecurity() {
+        return security;
+    }
+
+    public void setSecurity(List<Security> security) {
+        this.security = security;
+    }
 }
