@@ -3,13 +3,16 @@ package za.ac.tut.u221091140.laboratorywebapp.controller.admin;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import za.ac.tut.u221091140.laboratorywebapp.entities.lab.Lab;
+import za.ac.tut.u221091140.laboratorywebapp.entities.lab.LabService;
 import za.ac.tut.u221091140.laboratorywebapp.entities.user.User;
 import za.ac.tut.u221091140.laboratorywebapp.entities.user.UserService;
-import za.ac.tut.u221091140.laboratorywebapp.services.AdminService;
+import za.ac.tut.u221091140.laboratorywebapp.entities.user.studentadmin.AdminService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -25,11 +28,22 @@ public class AdminController {
     @Autowired
     UserService userService;
 
+    @Autowired
+    private LabService labService;
+
     @GetMapping("")
     public String showAdminDashboard(){
 
 
         return "dashboard";
+    }
+
+
+    //Mappings on Adding User
+    @GetMapping("/adduser")
+    public String addUserPage(){
+
+        return "create_acc";
     }
 
     @PostMapping("/adduser")
@@ -42,41 +56,61 @@ public class AdminController {
         session.setAttribute("msg","User Successfully Added");
 
 
-        response.sendRedirect("/home");
+        response.sendRedirect("/admin");
     }
+
+
+
+
+    //Mapping on adding Lab
+
+    @GetMapping("/addlab")
+    public String addLabPage(){
+
+        return "addlab";
+    }
+
 
     @PostMapping("/addlab")
     public void addLab(HttpServletRequest request, HttpServletResponse response) throws IOException {
         HttpSession session = request.getSession();
 
+        Lab lab = adminService.createLab(request);
 
 
-        session.setAttribute("msg","Lab Successfully Added ");
+        session.setAttribute("msg","Lab Successfully Added!!");
 
 
-        response.sendRedirect("/home");
+        response.sendRedirect("/admin");
 
     }
 
-    @GetMapping("/login")
-    public ModelAndView login(HttpServletRequest request){
-        ModelAndView modelAndView = new ModelAndView();
-        Long userId = Long.parseLong(request.getParameter("userId"));
-        String location;
+    @GetMapping("/availablelabs")
+    public String getAllAvailableLabs(Model model){
 
-        // find user
-        User user = userService.findUser(userId);
-
-        //check role and direct to a Specific page
-        if(user.getRole()=="studentAdmin"){
-            location = "";
-        }
-
-
-
-        modelAndView.setViewName("");
-        return modelAndView;
+        model.addAttribute("labs",labService.getAllLabs());
+         return  "see_labs_avail";
     }
+
+//    @GetMapping("/login")
+//    public ModelAndView login(HttpServletRequest request){
+//        ModelAndView modelAndView = new ModelAndView();
+//        Long userId = Long.parseLong(request.getParameter("userId"));
+//        String location;
+//
+//        // find user
+//       // User user = userService.findUser(userId);
+//
+//        //check role and direct to a Specific page
+////        if(user.getRole()=="studentAdmin"){
+////            location = "";
+////        }
+//
+//
+//
+//        modelAndView.setViewName("");
+//        return modelAndView;
+//    }
 
 
 
