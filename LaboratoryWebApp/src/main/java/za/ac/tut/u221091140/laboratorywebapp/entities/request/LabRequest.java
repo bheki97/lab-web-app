@@ -9,7 +9,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-class LabRequest {
+public class LabRequest {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

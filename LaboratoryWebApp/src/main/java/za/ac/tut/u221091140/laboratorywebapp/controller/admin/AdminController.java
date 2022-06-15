@@ -85,6 +85,7 @@ public class AdminController {
 
     }
 
+    // Mapping for getting all Labs Available
     @GetMapping("/availablelabs")
     public String getAllAvailableLabs(Model model){
 
@@ -92,25 +93,13 @@ public class AdminController {
          return  "see_labs_avail";
     }
 
-//    @GetMapping("/login")
-//    public ModelAndView login(HttpServletRequest request){
-//        ModelAndView modelAndView = new ModelAndView();
-//        Long userId = Long.parseLong(request.getParameter("userId"));
-//        String location;
-//
-//        // find user
-//       // User user = userService.findUser(userId);
-//
-//        //check role and direct to a Specific page
-////        if(user.getRole()=="studentAdmin"){
-////            location = "";
-////        }
-//
-//
-//
-//        modelAndView.setViewName("");
-//        return modelAndView;
-//    }
+    //Mapping for getting all request made by Student Admin
+    @GetMapping("/requests")
+    public String getAllRequests(){
+
+
+        return "view_all_request";
+    }
 
 
 

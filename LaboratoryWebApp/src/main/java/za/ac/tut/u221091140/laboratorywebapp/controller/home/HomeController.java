@@ -18,6 +18,7 @@ public class HomeController {
 
     @GetMapping("")
     public ModelAndView homepage(HttpServletRequest request){
+
         ModelAndView modelAndView = new ModelAndView();
         HttpSession session = request.getSession();
 

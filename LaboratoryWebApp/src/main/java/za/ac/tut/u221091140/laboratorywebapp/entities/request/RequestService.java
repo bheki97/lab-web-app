@@ -2,6 +2,7 @@ package za.ac.tut.u221091140.laboratorywebapp.entities.request;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import za.ac.tut.u221091140.laboratorywebapp.entities.lab.Lab;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -13,22 +14,25 @@ public class RequestService {
     @Autowired
     private RequestRepository requestRepository;
 
-    public void closeLab(Long labReqId){
+    public Lab closeLab(Long labReqId){
         LabRequest labReq = requestRepository.findById(labReqId).get();
 
         if(!labReq.getSignedIn() && labReq.getLab().getIsOpen()){
             labReq.setLab(labReq.getLab().setIsOpen(false));
         }
+        return labReq.getLab();
     }
 
-    public LabRequest openLab(Long labReqId){
+    public Lab openLab(Long labReqId){
         LabRequest labReq = requestRepository.findById(labReqId).get();
 
         if(!labReq.getLab().getIsOpen()){
             labReq.setLab(labReq.getLab().setIsOpen(true));
+
         }
 
-        return labReq;
+
+        return labReq.getLab();
     }
 
 
@@ -84,6 +88,26 @@ public class RequestService {
         }
 
         return labRequests;
+    }
+
+    public List<LabRequest> getRequestbyUserId(Long userId){
+
+        List<LabRequest> usersRequests = new ArrayList<>();
+        Iterator<LabRequest> iterator = requestRepository.findAll().iterator();
+        LabRequest labRequest;
+
+        while(iterator.hasNext()){
+
+            labRequest = iterator.next();
+            if(labRequest.getStudentAdmin().getId()==userId){
+                usersRequests.add(labRequest);
+
+            }
+
+        }
+
+
+        return usersRequests;
     }
 
 }

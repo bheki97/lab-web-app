@@ -2,7 +2,7 @@ package za.ac.tut.u221091140.laboratorywebapp.entities.lab;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import za.ac.tut.u221091140.laboratorywebapp.entities.user.User;
+import za.ac.tut.u221091140.laboratorywebapp.entities.request.LabRequest;
 
 import java.util.ArrayList;
 import java.util.Iterator;
