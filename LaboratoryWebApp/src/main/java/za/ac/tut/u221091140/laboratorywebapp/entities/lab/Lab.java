@@ -15,8 +15,21 @@ public class Lab {
     @Column(name = "building")
     private Integer buildingNo;
     private String campus;
+    private Boolean isOpen;
+
+
+
 
     public Lab() {
+    }
+
+    public Boolean getIsOpen() {
+        return isOpen;
+    }
+
+    public Lab setIsOpen(Boolean isOpen) {
+        this.isOpen = isOpen;
+        return this;
     }
 
     public String getLabNo() {
