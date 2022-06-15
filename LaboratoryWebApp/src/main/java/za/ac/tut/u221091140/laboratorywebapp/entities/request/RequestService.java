@@ -2,7 +2,6 @@ package za.ac.tut.u221091140.laboratorywebapp.entities.request;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import za.ac.tut.u221091140.laboratorywebapp.entities.schedule.SecuritySchedule;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -22,12 +21,14 @@ public class RequestService {
         }
     }
 
-    public void openLab(Long labReqId){
+    public LabRequest openLab(Long labReqId){
         LabRequest labReq = requestRepository.findById(labReqId).get();
 
         if(!labReq.getLab().getIsOpen()){
             labReq.setLab(labReq.getLab().setIsOpen(true));
         }
+
+        return labReq;
     }
 
 
