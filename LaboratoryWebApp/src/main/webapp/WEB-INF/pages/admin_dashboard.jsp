@@ -1,4 +1,7 @@
-<!doctype html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,8 +10,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 
-    <link href="<c:url value="../css/home.css" />" rel="stylesheet" >
     <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/home.css">
 </head>
 
@@ -22,11 +25,12 @@
                 </button>
                 <div class="justify-content-end collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-link active myLink" aria-current="page" href="/home/">add User</a>
+                        <a class="nav-link active myLink" aria-current="page" href="/admin/adduser">Add User</a>
                         <a class="nav-link active myLink" href="/admin/addlab">Add Labs</a>
-                        <a class="nav-link active myLink" href="/admin/seelabsavailable">See Labs available</a>
-                        <a class="nav-link active myLink" href="/admin/setsecsched">Set security schedule</a>
-                        <a class="nav-link active myLink" href="/admin/viewAllrequests">View all requests </a>
+                        <a class="nav-link active myLink" href="/admin/availablelabs">Available Labs</a>
+                        <a class="nav-link active myLink" href="/admin/setsecschedule">Set sec schedule</a>
+                        <a class="nav-link active myLink" href="/admin/availablelabs">Lab Requests</a>
+                        <a class="nav-link active myLink login rounded-pill" href="/logout" tabindex="-1" aria-disabled="true">Log Out</a>
                     </div>
                 </div>
             </div>
@@ -34,44 +38,11 @@
     </div>
 
     <div class="container table-container">
-        <h2>Schedule For Labs</h2>
-        <table class="schedule rounded-top  m-auto">
-            <thead class="">
-            <tr>
-                <td class="myLink">Lab Opener</td>
-                <td class="myLink">Lab No.</td>
-                <td class="myLink">Scheduled Time</td>
-                <td class="myLink">Duration</td>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>V Memani</td>
-                <td>10-252</td>
-                <td>2022/05/27 15h00</td>
-                <td>2 Hours</td>
-            </tr>
-            <tr>
-                <td>V Memani</td>
-                <td>10-252</td>
-                <td>2022/05/27 15h00</td>
-                <td>2 Hours</td>
-            </tr>
-            <tr>
-                <td>V Memani</td>
-                <td>10-252</td>
-                <td>2022/05/27 15h00</td>
-                <td>2 Hours</td>
-            </tr>
-            <tr>
-                <td>V Memani</td>
-                <td>10-252</td>
-                <td>2022/05/27 15h00</td>
-                <td>2 Hours</td>
-            </tr>
-            </tbody>
 
-        </table>
+        <div class="d-lg-block align-content-center">
+            <h1 class="text-center">Logged In As Admin</h1>
+        </div>
+
     </div>
     <div class=" bg-light text-center text-lg-start">
         <!-- Copyright -->
@@ -92,6 +63,9 @@
     %>
     <script>
         alert("<%= msg%>")
+    </script>
+    <script src="../js/bootstrap.min.js">
+
     </script>
     <%
 

@@ -134,7 +134,7 @@
                         <div class="custom-card p-5">
                             <h2 class="text-uppercase text-center mb-4">Add User account</h2>
 
-                            <form action="/home/createaccount" method="post">
+                            <form action="/admin/adduser" method="post">
                                 <div class="names form-outline mb-2 ">
                                     <div><input type="text" id="form3Example1cg" name="surname" class="form-control form-control-lg" />
                                         <label class="form-label" for="form3Example1cg">Your Surname</label>
@@ -170,7 +170,7 @@
 
                                 <p class="text-center text-muted mt-2 mb-2" style="color:#E4B312 !important;">Have already an account? <a href="/home/login" class="fw-bold text-body" style="color: #CE1127 !important;"><u>Login here</u></a></p>
                                 <div class="d-flex justify-content-center">
-                                    <button type="submit" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
+                                    <button type="submit" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Add USER</button>
                                 </div>
                             </form>
 

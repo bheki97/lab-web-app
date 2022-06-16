@@ -35,7 +35,7 @@ public class AdminController {
     public String showAdminDashboard(){
 
 
-        return "dashboard";
+        return "admin_dashboard";
     }
 
 
@@ -76,7 +76,7 @@ public class AdminController {
         HttpSession session = request.getSession();
 
         Lab lab = adminService.createLab(request);
-
+        labService.addLab(lab);
 
         session.setAttribute("msg","Lab Successfully Added!!");
 
@@ -99,6 +99,24 @@ public class AdminController {
 
 
         return "view_all_request";
+    }
+
+
+    // Mapping for setting a security schedule
+
+    @GetMapping("/setsecschedule")
+    public String viewSchedule(){
+
+
+        return "set_security_schedule";
+    }
+
+    @PostMapping("/setsecschedule")
+    public void setSchedule(HttpServletRequest request,HttpServletResponse response) throws IOException {
+
+
+
+        response.sendRedirect("/admin");
     }
 
 

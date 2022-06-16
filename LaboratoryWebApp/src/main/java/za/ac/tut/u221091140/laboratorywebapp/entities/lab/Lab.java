@@ -15,7 +15,9 @@ public class Lab {
     @Column(name = "building")
     private Integer buildingNo;
     private String campus;
-    private Boolean isOpen;
+
+    @Column(nullable = false)
+    private Boolean isOpen = false;
 
 
 
