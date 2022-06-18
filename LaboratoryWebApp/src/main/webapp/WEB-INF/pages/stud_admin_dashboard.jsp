@@ -8,7 +8,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="<c:url value="../css/home.css" />" rel="stylesheet" >
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/home.css">
 </head>
@@ -25,9 +24,9 @@
             </button>
             <div class="justify-content-end collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link active myLink" aria-current="page" href="/home">Sign in/out</a>
-                    <a class="nav-link active myLink" href="#">Request Lab</a>
-                    <a class="nav-link active myLink" href="#">View Available Lab</a>
+                    <a class="nav-link active myLink" aria-current="page" href="/studentadmin/">Sign in/out</a>
+                    <a class="nav-link active myLink" href="/studentadmin/requestlab">Request Lab</a>
+                    <a class="nav-link active myLink" href="#">Available Lab</a>
                     <a class="nav-link active myLink login rounded-pill" href="#" tabindex="-1" aria-disabled="true">Log out</a>
                 </div>
             </div>
@@ -35,44 +34,8 @@
     </nav>
 </div>
 <div class="container table-container">
-    <h2>Schedule For Labs</h2>
-    <table class="schedule rounded-top  m-auto">
-        <thead class="">
-        <tr>
-            <td class="myLink">Lab Opener</td>
-            <td class="myLink">Lab No.</td>
-            <td class="myLink">Scheduled Time</td>
-            <td class="myLink">Duration</td>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>V Memani</td>
-            <td>10-252</td>
-            <td>2022/05/27 15h00</td>
-            <td>2 Hours</td>
-        </tr>
-        <tr>
-            <td>V Memani</td>
-            <td>10-252</td>
-            <td>2022/05/27 15h00</td>
-            <td>2 Hours</td>
-        </tr>
-        <tr>
-            <td>V Memani</td>
-            <td>10-252</td>
-            <td>2022/05/27 15h00</td>
-            <td>2 Hours</td>
-        </tr>
-        <tr>
-            <td>V Memani</td>
-            <td>10-252</td>
-            <td>2022/05/27 15h00</td>
-            <td>2 Hours</td>
-        </tr>
-        </tbody>
+    <h2>Logged In As Student Admin <br> Lecture/Tutor/Lab Assistants</h2>
 
-    </table>
 </div>
 <div class=" bg-light text-center text-lg-start">
     <!-- Copyright -->
@@ -85,7 +48,8 @@
 
 
 <!--Javascript-->
-<script src="../js/bootstrap.bundle.min.js" ></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
 <%
 
     String msg = (String) session.getAttribute("msg");

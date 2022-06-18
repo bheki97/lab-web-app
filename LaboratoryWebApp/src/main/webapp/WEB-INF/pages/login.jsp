@@ -136,12 +136,12 @@
 
                             <form action="" method="post">
                                 <div class="form-outline mb-2">
-                                    <input type="email" id="form3Example3cg" name="email" class="form-control form-control-lg" />
+                                    <input type="email" id="form3Example3cg" name="username" class="form-control form-control-lg" />
                                     <label class="form-label" for="form3Example3cg">Your Email/Staff/Student No.</label>
                                 </div>
 
                                 <div class="form-outline mb-2">
-                                    <input type="password" id="form3Example4cg" name="passwrd"  class="form-control form-control-lg" />
+                                    <input type="password" id="form3Example4cg" name="password"  class="form-control form-control-lg" />
                                     <label class="form-label" for="form3Example4cg">Password</label>
                                 </div>
 

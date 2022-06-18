@@ -43,24 +43,28 @@
 <div class="container table-container">
 
     <div class="d-lg-block align-content-center">
-        <h2 class="text-center">Available Labs</h2>
+        <h2>Available Labs</h2>
 
         <table
-                id="table"
+                id="dtBasicExampletable"
                 data-toggle="table"
                 data-height="460"
                 data-search="true"
                 data-side-pagination="server"
-                data-pagination="true">
-            <thead>
+                data-pagination="true"
+                class="table table-striped table-borderless table-sm"
+        >
+            <thead class="text-center">
             <tr>
-                <th data-field="id">ID</th>
-                <th data-field="name">Item Name</th>
-                <th data-field="price">Item Price</th>
+                <th data-field="id">Lab No.</th>
+                <th data-field="name">Building No</th>
+                <th data-field="price">Campus</th>
+                <th data-field="status">Lab Status</th>
             </tr>
             </thead>
 
             <tbody>
+
                 <c:forEach var="lab" items="${labs}">
                     <tr>
                         <td><c:out value="${lab.labNo}"/></td>
@@ -78,6 +82,7 @@
                         </td>
                     </tr>
                 </c:forEach>
+
             </tbody>
         </table>
 
@@ -103,7 +108,7 @@
 <script>
     alert("<%= msg%>")
 </script>
-<script src="../js/bootstrap.min.js">
+
 
 </script>
 <%
@@ -111,10 +116,13 @@
     }
 %>
 <!--Javascript-->
-<script src="../js/bootstrap.bundle.min.js" ></script>
-<script src="https://unpkg.com/bootstrap-table@1.20.2/dist/bootstrap-table.min.js"></script>
-
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function () {
+        $('#dtBasicExample').DataTable();
+        $('.dataTables_length').addClass('bs-select');
+    });
+</script>
 
 </body>
 </html>

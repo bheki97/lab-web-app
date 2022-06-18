@@ -37,24 +37,7 @@
     </nav>
 </div>
 
-<div class="items-stretch custom-nav">
-    <nav class="myNav navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container d-flex justify-content-between">
-            <a class="navbar-brand myBrand" href="index.html">T-Lab Manager</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="justify-content-end collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-link active myLink" aria-current="page" href="/home">Home</a>
-                    <a class="nav-link active myLink" href="#">Schedule</a>
-                    <a class="nav-link active myLink" href="#">Contacts</a>
-                    <a class="nav-link active myLink login rounded-pill" href="login.html" tabindex="-1" aria-disabled="true">Login</a>
-                </div>
-            </div>
-        </div>
-    </nav>
-</div>
+
 <div class="container table-container">
     <div class=" mask d-flex align-items-center h-100 gradient-custom-3">
         <div class="container h-100 sign-form">
@@ -65,7 +48,7 @@
                             <h2 class="text-uppercase text-center mb-4">Registering A Lab</h2>
 
                             <form action="/admin/addlab" method="post" name="">
-                                <div class="names form-outline mb-2 ">
+                                <div class="form-outline mb-2 ">
                                     <div><input type="text" id="form3Example1cg" name="labno" class="form-control form-control-lg" />
                                         <label class="form-label" for="form3Example1cg">Lab No.</label>
                                     </div>

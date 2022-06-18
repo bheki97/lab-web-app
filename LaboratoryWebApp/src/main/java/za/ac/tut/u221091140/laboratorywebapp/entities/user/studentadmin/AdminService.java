@@ -39,12 +39,13 @@ public class AdminService {
             security.setId(userid);
             security.setName(name);
             security.setSurname(surname);
-            security.setCellNo(cellno);
-            security.setPassword(passwrd);security.setOnDuty(false);
+            security.setEmail(email);
+            security.setPassword(passwrd);
+            security.setOnDuty(false);
 
             user = security;
 
-        }else if(role.equalsIgnoreCase("admin")){
+        }else if(role.equalsIgnoreCase("studadmin")){
             StudentAdmin studentAdmin = new StudentAdmin();
             String position  = request.getParameter("position");
 
@@ -52,6 +53,8 @@ public class AdminService {
             studentAdmin.setId(userid);
             studentAdmin.setName(name);
             studentAdmin.setSurname(surname);
+            studentAdmin.setEmail(email);
+            studentAdmin.setRole(role);
             studentAdmin.setCellNo(cellno);
             studentAdmin.setPassword(passwrd);
             studentAdmin.setPosition(position);
